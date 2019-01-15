@@ -1,3 +1,21 @@
+body {
+  background-image: url('../images/bright_lightning.jpg');
+  color: white;
+}
+
+h1 {
+  font-family: 'Amarante', cursive;
+}
+
+.mybox {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5% 15%;
+  height: 800px;
+  background-color: #330033;
+  opacity: 0.75;
+}
+
 .multiChoice {
   margin-left: 2rem;
 }

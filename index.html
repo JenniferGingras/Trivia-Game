@@ -16,27 +16,39 @@
 
 <body>
   <div class="mybox">
+    <!-- The title and instructions -->
     <div>
       <h1>Mythology Trivia</h1>
-      <h5>Test your knowledge, but think fast. These questions are timed!</h4>
+      <h5>Answer ten questions and test your knowledge. Think fast. These questions are timed!</h4>
     </div>
     <br>
+    <!-- Space for the timer -->
     <div>
-      <p>Time left:</p><span id='timeCountdown'></span>
+      <p id='timeCountdown'></p>
     </div>
+    <!-- This div gets used at the end to display the final count of correct and incorrect answers -->
+    <div class="finalResults">
+      <h3></h3>
+      <h4 id="correctResults"></h4>
+      <h4 id="incorrectResults"></h4>
+    </div>
+    <!-- The area where the questions and multiple choice answers are displayed -->
     <div class="changeText">
       <div>
-        <h4 id="quizQuestion">Question goes here</h4>
+        <h4 id="quizQuestion">Take the Quiz</h4>
       </div>
       <div class="multiChoice">
       </div>
+      <!-- Correct or incorrect message -->
       <div id="messageLog">
         <h4></h4>
       </div>
     </div>
     <br>
+    <!-- Start button and next question button -->
     <div id="nextButton">
-      <button type="button" class="btn btn-dark" id="playButton">Take the Quiz</button>
+      <!-- Play button is shown on the page load, but disappears when the questions are called -->
+      <button type="button" class="btn btn-dark" id="playButton">Start Quiz</button>
     </div>
   </div>
 

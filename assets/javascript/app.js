@@ -12,6 +12,8 @@ $(document).ready(function () {
   var playButton = $('#playButton');
   var message = $('#messageLog');
   var timeSet;
+  var triviaArr = [];
+  var indexQ;
 
 
 
@@ -55,6 +57,7 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (response) {
       createBoxes(response);
+      triviaArr = response;
       console.log(response);
     });
   }
@@ -63,6 +66,7 @@ $(document).ready(function () {
   // -----------------------------------
   var letters = ["A", "B", "C", "D"]
   var createBoxes = function (res) {
+    correct_answer = res.results[0].correct_answer;
     // put answers into one array
     let allAnswers = res.results[0].incorrect_answers
     allAnswers.push(res.results[0].correct_answer)
@@ -75,7 +79,7 @@ $(document).ready(function () {
     shuffleAnswers(allAnswers);
     // loop through the array of answers to create a button for each
     for (var i = 0; i < allAnswers.length; i++) {
-      $(".multiChoice").append(`<button type="button" class="btn btn-outline-light answerBtn">${letters[i]}</button><span id="answerA">${allAnswers[i]}</span><br></br>`)
+      $(".multiChoice").append(`<button type="button" class="btn btn-outline-light answerBtn" data-answer=${allAnswers[i]}>${letters[i]}</button><span id="answerA">${allAnswers[i]}</span><br></br>`)
       console.log(allAnswers[i]);
     };
   }
@@ -92,12 +96,13 @@ $(document).ready(function () {
   // ----------------------------------
   $("body").on("click", ".answerBtn", function () {
     stopTimer();
-    selectedAnswer = $('this').text();
+    selectedAnswer = $(this).attr("data-answer");
+    console.log(selectedAnswer);
     if (selectedAnswer === correct_answer) {
       rightAnswer++
       console.log('Correct!')
       message.html("Yes! You're right!");
-      //add next question button
+      // add next question button
       $("#nextButton").append(`<button type="button" class="btn btn-dark">${"next question"}</button><br></br>`)
     } else {
       wrongAnswer++
@@ -114,6 +119,7 @@ $(document).ready(function () {
   // }
 
   // END OF GAME
+  // --------------
   // After 10 questions display the final results
   // display number of correct answers and incorrect answers
   // $('.changeText').empty();

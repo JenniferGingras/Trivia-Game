@@ -27,8 +27,8 @@
       <p id='timeCountdown'></p>
     </div>
     <!-- This div gets used at the end to display the final count of correct and incorrect answers -->
-    <div class="finalResults">
-      <h3></h3>
+    <div>
+      <h3 id="finalResults"></h3>
       <h4 id="correctResults"></h4>
       <h4 id="incorrectResults"></h4>
     </div>
@@ -46,7 +46,9 @@
     </div>
     <br>
     <!-- Start button and next question button -->
-    <div id="nextButton">
+    <div>
+      <!-- Next button is hidden on page load and is shown when answers are chosen -->
+      <button type="button" class="btn btn-dark nextButton" id="nextButton">Next Question</button><br></br>
       <!-- Play button is shown on the page load, but disappears when the questions are called -->
       <button type="button" class="btn btn-dark" id="playButton">Start Quiz</button>
     </div>

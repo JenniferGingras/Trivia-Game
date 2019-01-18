@@ -23,3 +23,7 @@ h1 {
 .answerBtn {
   margin: 0.5rem;
 }
+
+#nextButton {
+  display: none;
+}
